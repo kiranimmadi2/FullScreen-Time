@@ -1,5 +1,7 @@
 # FullScreen Time
 
+[Live Demo](https://kiranimmadi2.github.io/FullScreen-Time/)
+
 **FullScreen Time** is a minimalist web-based clock application designed for users who want a distraction-free way to view the current time. The application displays the time in a large, easy-to-read format against a black background with white text. It supports a fullscreen mode, providing a clear, focused view of the time without any distractions.
 
 The project leverages HTML, CSS, and JavaScript to deliver an intuitive user experience. The time is displayed in **HH:MM:SS** format, updating every second. Users can enter and exit fullscreen mode with a simple button click. The app is designed to automatically detect when the user exits fullscreen mode and re-displays the fullscreen option, making it flexible and user-friendly.
