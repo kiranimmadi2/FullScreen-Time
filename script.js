@@ -7,12 +7,8 @@ function updateTime() {
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
 
-    // Update clock content based on the selected format
-    if (timeFormat === "hh:mm") {
-        clock.textContent = `${hours}:${minutes}`;
-    } else if (timeFormat === "hh:mm:ss") {
-        clock.textContent = `${hours}:${minutes}:${seconds}`;
-    }
+    clock.textContent =
+        timeFormat === "hh:mm" ? `${hours}:${minutes}` : `${hours}:${minutes}:${seconds}`;
 }
 
 // Update the time every second
@@ -24,15 +20,16 @@ const fullscreenBtn = document.getElementById("fullscreen-btn");
 fullscreenBtn.addEventListener("click", () => {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
-        document.body.classList.add("fullscreen-active");
+    } else {
+        document.exitFullscreen();
     }
 });
 
-// Detect when exiting fullscreen and show the controls again
+// Detect when exiting fullscreen
 document.addEventListener("fullscreenchange", () => {
-    if (!document.fullscreenElement) {
-        document.body.classList.remove("fullscreen-active");
-    }
+    fullscreenBtn.textContent = document.fullscreenElement
+        ? "Exit Fullscreen"
+        : "Enter Fullscreen";
 });
 
 // Handle time format changes
@@ -41,13 +38,15 @@ document.getElementById("time-format").addEventListener("change", (event) => {
     updateTime();
 });
 
-// Handle color changes
+// Handle clock color change
 document.getElementById("clock-color").addEventListener("input", (event) => {
     document.getElementById("clock").style.color = event.target.value;
 });
 
+// Handle background color change
 document.getElementById("background-color").addEventListener("input", (event) => {
     document.body.style.backgroundColor = event.target.value;
+    document.body.style.backgroundImage = ""; // Reset custom wallpaper
 });
 
 // Handle custom wallpaper upload
@@ -65,15 +64,12 @@ document.getElementById("custom-wallpaper").addEventListener("change", (event) =
     }
 });
 
-// Handle font size changes
+// Handle font size change
 document.getElementById("font-size").addEventListener("input", (event) => {
-    const fontSize = event.target.value;
-    document.getElementById("clock").style.fontSize = `${fontSize}px`;
+    document.getElementById("clock").style.fontSize = `${event.target.value}px`;
 });
 
-// Handle font style changes
+// Handle font style change
 document.getElementById("font-style").addEventListener("change", (event) => {
-    const fontStyle = event.target.value;
-    document.getElementById("clock").style.fontFamily = fontStyle;
+    document.getElementById("clock").style.fontFamily = event.target.value;
 });
-
