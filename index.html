@@ -7,6 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="controls">
+        <h3>Customize Clock</h3>
+        <label for="time-format">Time Format:</label>
+        <select id="time-format">
+            <option value="hh:mm">Hour & Minute</option>
+            <option value="hh:mm:ss" selected>Hour, Minute & Second</option>
+        </select>
+        <label for="clock-color">Clock Color:</label>
+        <input type="color" id="clock-color">
+        <label for="background-color">Background Color:</label>
+        <input type="color" id="background-color">
+        <label for="font-size">Font Size:</label>
+        <input type="range" id="font-size" min="10" max="300" value="120">
+        <label for="font-style">Font Style:</label>
+        <select id="font-style">
+            <option value="'Arial', sans-serif">Arial</option>
+            <option value="'Courier New', monospace">Courier New</option>
+            <option value="'Verdana', sans-serif">Verdana</option>
+            <option value="'Roboto', sans-serif">Roboto</option>
+            <option value="'Impact', sans-serif">Impact</option>
+            <option value="'Georgia', serif">Georgia</option>
+            <option value="'Times New Roman', serif">Times New Roman</option>
+            <option value="'Lucida Console', monospace">Lucida Console</option>
+        </select>
+        <label for="custom-wallpaper">Upload Wallpaper:</label>
+        <input type="file" id="custom-wallpaper" accept="image/*">
+    </div>
     <div id="clock-container">
         <p id="clock"></p>
         <button id="fullscreen-btn">Enter Fullscreen</button>
